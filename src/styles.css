@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.css';
+@import '~@swimlane/ngx-datatable/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+@media (min-width: 992px) {
+  .modal-lg {
+    max-width: 1060px;
+  }
+
+  .modal-xl {
+    max-width: 1700px;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.tab-container {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 11px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

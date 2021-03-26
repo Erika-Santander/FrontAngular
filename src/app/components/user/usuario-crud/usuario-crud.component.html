@@ -1,0 +1,104 @@
+<html>
+
+<br><br><br>
+<div class="row">
+
+  <div class="col-9">
+
+  </div>
+  <div class="col-3">
+    <button class="btn btn-lg btn-info form-control" (click)="openModal(modalContent)">Nuevo</button>
+  </div>
+
+  <div class="col-12">
+    <div class="table-responsive">
+
+        <ngx-datatable class="material"
+                       [rows]="source.rows"
+                       [columnMode]="'force'"
+                       [headerHeight]="40" [footerHeight]="50"
+                       [rowHeight]="'auto'"
+                       [limit]="10">
+
+          <ngx-datatable-column name="Nombre" prop="nombreCompleto"></ngx-datatable-column>
+          <ngx-datatable-column name="Usuario" prop="username"></ngx-datatable-column>
+          <ngx-datatable-column name="Contraseña" prop="password"></ngx-datatable-column>
+          <ngx-datatable-column name="edad" prop="edad"></ngx-datatable-column>
+          <ngx-datatable-column name="Fecha de Nacimiento" prop="fechaNacimiento"></ngx-datatable-column>
+          <ngx-datatable-column name = 'Editar'>
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+              <button class="btn btn-primary btn-md" (click)="actualizarDatos(row,modalContentUpdate)">
+                <i class="material-icons">create</i>
+              </button>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Eliminar" >
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+              <button class="btn btn-md btn-danger " (click)="eliminarDatos(row)">
+                <i class="material-icons">delete_outline</i>
+              </button>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+
+    </div>
+  </div>
+
+</div>
+
+<ng-template #modalContent let-modal>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+            (click)="modal.close('Save click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formularioUsuario" #formulario>
+
+      Nombre Completo: <input class="form-control" formControlName="nombreCompleto" type="text"><br/>
+      usuario <input class="form-control" formControlName="username" type="text"/><br>
+      Pasword <input class="form-control" formControlName="password" type="password"/><br>
+      Edad <input class="form-control" formControlName="edad" type="number"/><br/>
+      Estado:
+      <select name="estado" formControlName="estado" class="form-control">
+        <option value="1">Activo</option>
+        <option value="0">Incativo</option>
+      </select>
+      <br/>
+      Fecha de Nacimiento <input class="form-control" formControlName="fechaNacimiento" type="date"> <br>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <input type="button" class="form-control btn btn-success" (click)="creando(formularioUsuario)" value="Guardar">
+  </div>
+</ng-template>
+
+<ng-template #modalContentUpdate let-modal>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+            (click)="modal.close('Save click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formularioUsuario" #formulario>
+
+      Nombre Completo: <input class="form-control" formControlName="nombreCompleto" type="text"><br/>
+      usuario <input class="form-control" formControlName="username" type="text"/><br>
+      Pasword <input class="form-control" formControlName="password" type="password"/><br>
+      Edad <input class="form-control" formControlName="edad" type="number"/><br/>
+      Estado:
+      <select name="estado" formControlName="estado" class="form-control">
+        <option value="1">Activo</option>
+        <option value="0">Incativo</option>
+      </select>
+      <br/>
+      Fecha de Nacimiento <input class="form-control" formControlName="fechaNacimiento" type="date"> <br>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <input type="button" class="form-control btn btn-success" (click)="actualizar(formularioUsuario)" value="Guardar">
+  </div>
+</ng-template>
+</html>
