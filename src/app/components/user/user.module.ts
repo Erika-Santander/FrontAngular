@@ -8,12 +8,14 @@ import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PersonaComponent } from './persona/persona.component';
+import { CargaArchivoComponent } from './carga-archivo/carga-archivo.component';
 
 @NgModule({
   declarations: [
     UsuarioCrudComponent,
     XyzComponent,
-    PersonaComponent
+    PersonaComponent,
+    CargaArchivoComponent
   ],
   imports: [
     CommonModule,
