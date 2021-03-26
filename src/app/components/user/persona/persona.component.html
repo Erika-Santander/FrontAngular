@@ -2,26 +2,14 @@
 
 <br><br><br>
 <div class="row">
-
-  <div class="col-3">
-    <br>
-  </div>
-  <div class="col-6">
+  <div class="col-9">
 
   </div>
   <div class="col-3">
-    <button class="btn btn-info" (click)="openModal(modalContent1)">Nuevo</button>
+    <button class="btn btn-info form-control" (click)="openModal(modalContent1)">Nuevo</button>
   </div>
-  <div class="col-1">
 
-  </div>
-  <div class="col-10">
-
-  </div>
-  <div class="col-2">
-
-  </div>
-  <div class="col-8">
+  <div class="col-12">
     <div class="table-responsive">
       <ngx-datatable class="bootstrap"
                      [rows]="source.rows"
@@ -29,15 +17,14 @@
                      [headerHeight]="40" [footerHeight]="50"
                      [rowHeight]="'auto'"
                      [limit]="10">
-        <ngx-datatable-column  name="Nombre" prop="name"></ngx-datatable-column>
+        <ngx-datatable-column name="Nombre" prop="name"></ngx-datatable-column>
         <ngx-datatable-column name="Apellido" prop="lastname"></ngx-datatable-column>
         <ngx-datatable-column name="Direccion" prop="direccion"></ngx-datatable-column>
         <ngx-datatable-column name="edad" prop="age"></ngx-datatable-column>
         <ngx-datatable-column>
           <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
             <button class="btn btn-outline-warning" (click)="actualizarDatos(row,modalContentUpdate)">
-
-              Actualizar
+              <i class="material-icons">create</i>
             </button>
           </ng-template>
         </ngx-datatable-column>
@@ -45,38 +32,36 @@
           <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
             <button class="btn btn-outline-danger" (click)="eliminarDatos(row)">
               <i class="material-icons">delete_outline</i>
-              Eliminar
             </button>
           </ng-template>
         </ngx-datatable-column>
       </ngx-datatable>
     </div>
   </div>
-  <div class="col-2">
-  </div>
+
 </div>
 </html>
 
-  <ng-template #modalContent1 let-modal >
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-              (click)="modal.close('Save click')">
-        <span aria-hidden="true">×</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form [formGroup]="formularioPersona" #formulario>
+<ng-template #modalContent1 let-modal>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+            (click)="modal.close('Save click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formularioPersona" #formulario>
 
-        Nombre: <input class="form-control" formControlName="name" type="text"><br/>
-        Apellido <input class="form-control" formControlName="lastname" type="text"/><br>
-        Direccion <input class="form-control" formControlName="direccion" type="text"/><br>
-        Edad <input class="form-control" formControlName="age" type="number"/><br/>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <input type="button" class="form-control btn btn-success" (click)="creando(formularioPersona)" value="Guardar">
-    </div>
-  </ng-template>
+      Nombre: <input class="form-control" formControlName="name" type="text"><br/>
+      Apellido <input class="form-control" formControlName="lastname" type="text"/><br>
+      Direccion <input class="form-control" formControlName="direccion" type="text"/><br>
+      Edad <input class="form-control" formControlName="age" type="number"/><br/>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <input type="button" class="form-control btn btn-success" (click)="creando(formularioPersona)" value="Guardar">
+  </div>
+</ng-template>
 
 <ng-template #modalContentUpdate let-modal>
   <div class="modal-header">

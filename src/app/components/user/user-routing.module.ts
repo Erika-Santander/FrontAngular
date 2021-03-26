@@ -20,7 +20,7 @@ const routes: Routes = [
     component: PersonaComponent
   },
   {
-    path: 'Carga',
+    path: 'carga',
     component: CargaArchivoComponent
   }
 ];
